@@ -1,0 +1,59 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 3,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1783619059.0529368,
+            "stop": 1783619059.0666997
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_total_requests",
+                "status": "passed",
+                "duration": 0.00042308299993010223,
+                "start": 1783619059.0611968,
+                "stop": 1783619059.0617628,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unique_ips",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0003771660000779775,
+                "start": 1783619059.0618412,
+                "stop": 1783619059.0656455,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_unique_ips():\n        \"\"\"Success Criterion 2: report contains the correct number of unique client IP addresses.\"\"\"\n        report = load_report()\n>       assert report[\"unique_ips\"] == 3\nE       assert 999 == 3\n\n/tests/test_outputs.py:21: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_top_path",
+                "status": "passed",
+                "duration": 0.0003052909999610165,
+                "start": 1783619059.065723,
+                "stop": 1783619059.0661137,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_schema",
+                "status": "passed",
+                "duration": 0.00031150000000934597,
+                "start": 1783619059.0661798,
+                "stop": 1783619059.0665784,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

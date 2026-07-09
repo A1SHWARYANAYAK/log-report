@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 4 items
+
+../tests/test_outputs.py .F..                                            [100%]
+
+=================================== FAILURES ===================================
+_______________________________ test_unique_ips ________________________________
+
+    def test_unique_ips():
+        """Success Criterion 2: report contains the correct number of unique client IP addresses."""
+        report = load_report()
+>       assert report["unique_ips"] == 3
+E       assert 999 == 3
+
+/tests/test_outputs.py:21: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_total_requests
+PASSED ../tests/test_outputs.py::test_top_path
+PASSED ../tests/test_outputs.py::test_schema
+FAILED ../tests/test_outputs.py::test_unique_ips - assert 999 == 3
+========================= 1 failed, 3 passed in 0.01s ==========================
