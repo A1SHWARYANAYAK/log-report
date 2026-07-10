@@ -1,76 +1,95 @@
 # Log Report
 
-An AI-powered log analysis and reporting system that transforms raw application logs into structured, human-readable incident reports.
+A benchmark task for evaluating autonomous AI agents on log parsing and structured report generation.
 
-Instead of manually scanning thousands of log lines, Log Report automatically extracts errors, identifies root causes, summarizes incidents, and generates actionable reports using Large Language Models.
+The task requires an AI agent to parse an Apache-style access log, compute summary statistics, and generate a deterministic JSON report that satisfies a predefined schema.
 
-## Features
+This project was developed as part of the Handshake AI Dynamo benchmark suite for evaluating software engineering and data-processing capabilities of autonomous coding agents.
 
-- Intelligent log parsing and preprocessing
-- AI-powered incident summarization
-- Root cause analysis
-- Automatic report generation
-- Error clustering and categorization
-- Structured JSON and Markdown outputs
-- Supports large log files
-- Extensible processing pipeline
+---
 
-## Architecture
+## Problem Overview
+
+Given an Apache access log, the agent must generate:
+
+- Total number of requests
+- Number of unique client IP addresses
+- Most frequently requested endpoint
+
+The final report is written as:
 
 ```
-Raw Logs
-    │
-    ▼
-Log Parser
-    │
-    ▼
-Preprocessing & Cleaning
-    │
-    ▼
-LLM Analysis
-    │
-    ├── Error Detection
-    ├── Root Cause Extraction
-    ├── Severity Classification
-    └── Timeline Construction
-    │
-    ▼
-Structured Report Generator
-    │
-    ▼
-Markdown / JSON Report
+/app/report.json
 ```
 
-## Tech Stack
+and is automatically validated against a deterministic test suite.
+
+---
+
+## Repository Structure
+
+```
+task/
+├── instruction.md          # Task specification
+├── task.toml               # Harbor task metadata
+├── environment/
+│   ├── Dockerfile
+│   └── access.log
+├── solution/
+│   ├── solve.py
+│   └── solve.sh
+└── tests/
+    ├── test.sh
+    └── test_outputs.py
+```
+
+---
+
+## Technologies
 
 - Python
-- OpenAI API
-- LangChain
-- Pydantic
+- Regular Expressions
 - JSON
-- Logging
-- Regex
-- Async Processing
+- Docker
+- Harbor
+- Pytest
 
-## Example Use Cases
+---
 
-- Application log analysis
-- Production incident reporting
-- CI/CD failure summaries
-- Server diagnostics
-- Debugging distributed systems
-- Support automation
+## Evaluation Pipeline
 
-## Future Improvements
+```
+Apache Access Log
+        │
+        ▼
+Parse Log Entries
+        │
+        ▼
+Compute Statistics
+        │
+        ▼
+Generate report.json
+        │
+        ▼
+Automated Pytest Verification
+```
 
-- Multi-log correlation
-- RAG-based historical incident retrieval
-- Interactive dashboard
-- Streaming log support
-- Grafana integration
-- Kubernetes log ingestion
-- CloudWatch and ELK connectors
+---
 
-## License
+## Learning Objectives
 
-MIT
+This benchmark evaluates an agent's ability to:
+
+- Parse semi-structured log files
+- Extract structured information
+- Perform deterministic aggregation
+- Generate schema-compliant JSON
+- Produce reproducible outputs
+
+---
+
+## Part of
+
+Handshake AI — Project Dynamo
+
+Benchmark Engineering for Autonomous AI Agents.
